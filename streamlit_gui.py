@@ -51,11 +51,11 @@ body {
 # -------------------------------
 @st.cache_resource
 def load_model():
-    return joblib.load(r"C:\Users\Kuria\OneDrive\Documents\IO Project\house_price_prediction.pkl")
+    return joblib.load(r"house_price_prediction.pkl")
 
 @st.cache_data
 def load_training_csv():
-    df = pd.read_csv(r"C:\Users\Kuria\OneDrive\Documents\IO Project\train.csv")
+    df = pd.read_csv(r"train.csv")
     df = df.drop(columns=["SalePrice", "Id"])
     return df
 
@@ -135,5 +135,6 @@ elif page == "📊 Tableau Dashboard":
 
     # **WORKING URL**
     tableau_url = "https://public.tableau.com/views/House_Price_17630990066190/HousePriceGraphs?:embed=yes&:showVizHome=no"
+
 
     components.iframe(tableau_url, width=1400, height=900, scrolling=True)
